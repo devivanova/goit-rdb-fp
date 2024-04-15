@@ -36,7 +36,7 @@ SELECT * FROM pandemic.infectious_cases;
 p_2.4:
 SET SQL_SAFE_UPDATES = 0;
 UPDATE infectious_cases AS ic
-    INNER JOIN country_entity AS ce ON ic.Code = ce.code
+        INNER JOIN country_entity AS ce ON ( ic.Code = ce.code and ic.entity=ce.name)
 SET ic.country_entity_id = ce.id;
 SET SQL_SAFE_UPDATES = 1;
 
